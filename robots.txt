@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://melchior-fogue-masterclasses.vercel.app/sitemap.xml
