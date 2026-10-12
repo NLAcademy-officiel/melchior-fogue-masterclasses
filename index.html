@@ -61,9 +61,10 @@ section{padding:70px 0}
 .head h2{font-size:clamp(29px,3.5vw,42px);line-height:1.1;letter-spacing:-1.5px;color:var(--n);margin:9px 0}
 .head p{max-width:470px;color:var(--m);margin:0;font-size:14px}
 .video-wrap{background:var(--n);border-radius:26px;padding:18px;box-shadow:0 20px 60px #10172b14}
-.video{position:relative;min-height:320px;aspect-ratio:16/7;background:linear-gradient(130deg,#1b2948,#090e1b);border:1px solid #ffffff20;border-radius:18px;display:grid;place-items:center;overflow:hidden}
-.video:before,.video:after{content:"";position:absolute;border:1px solid #f0bd4f42;border-radius:50%;width:360px;height:360px;animation:orbit 30s linear infinite}
-.video:after{width:500px;height:500px;animation-direction:reverse}
+.video{position:relative;width:min(100%,360px);aspect-ratio:9/16;min-height:0;margin:0 auto;background:#080d18;border:1px solid #ffffff20;border-radius:18px;overflow:hidden;box-shadow:0 16px 40px #0005}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.video-cta{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;padding:20px 8px 4px;color:#e4e8f0;font-size:12px;text-align:center}
+.video-cta .btn{white-space:normal;text-align:center}
 .vcenter{position:relative;z-index:1;text-align:center;color:white;padding:24px}
 .play{width:72px;height:72px;border-radius:50%;background:var(--g);color:var(--n);display:grid;place-items:center;margin:0 auto 18px;font-size:25px;box-shadow:0 0 0 12px #f0bd4f18}
 .vcenter h3{font-size:clamp(21px,3vw,30px);margin:0 0 8px}
@@ -143,7 +144,6 @@ footer{background:#fff;border-top:1px solid var(--line);padding:27px 0;color:var
  .cards,.steps{grid-template-columns:1fr}
  .head{display:block}
  .head p{margin-top:10px}
- .video{aspect-ratio:4/3;min-height:250px}
  .cta{display:block;padding:28px}
  .cta .btn{margin-top:20px}
  .top .wrap{justify-content:center}
@@ -233,17 +233,28 @@ footer{background:#fff;border-top:1px solid var(--line);padding:27px 0;color:var
     <div class="eyebrow"><span class="spark"></span> Quelques mots avant de commencer</div>
     <h2>Bienvenue dans mon univers.</h2>
    </div>
-   <p>Cet espace accueillera ma vidéo de présentation : mon parcours, ma démarche et les idées que je souhaite partager.</p>
+   <p>Découvre mon parcours, ma vision de l'entrepreneuriat numérique et les idées que je partage à travers mes masterclasses.</p>
   </div>
+
   <div class="video-wrap">
    <div class="video">
-    <div class="vcenter">
-     <div class="play">▶</div>
-     <h3>Ma vidéo de présentation arrive bientôt</h3>
-     <p>Pourquoi ces masterclasses, ce que tu vas apprendre et comment transformer les idées en actions concrètes.</p>
-    </div>
+    <iframe
+     src="https://www.youtube-nocookie.com/embed/kfCaBM2H4Gg?rel=0"
+     title="Présentation de Melchior Fogué — Masterclasses"
+     loading="lazy"
+     referrerpolicy="strict-origin-when-cross-origin"
+     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+     allowfullscreen>
+    </iframe>
    </div>
-   <div class="vcap"><span>ESPACE RÉSERVÉ À MA VIDÉO</span><span>Format recommandé : 16:9 · YouTube ou fichier vidéo</span></div>
+   <div class="vcap">
+    <span>PRÉSENTATION DE MELCHIOR FOGUÉ</span>
+    <span>Vidéo verticale 9:16 · YouTube Shorts</span>
+   </div>
+   <div class="video-cta">
+    <a class="btn gold" href="#inscription" onclick="openModal();return false;">Réserver ma place gratuitement ↗</a>
+    <span>10 novembre 2026 · 19h00 · Heure d’Abidjan</span>
+   </div>
   </div>
  </div>
 </section>
@@ -496,7 +507,6 @@ document.getElementById("signup").addEventListener("submit", async (event) => {
 
   const formData = new FormData(form);
 
-  // Ajoute ta clé Web3Forms ici directement dans GitHub.
   formData.set("access_key", "193ea8f3-d9b5-42df-8a18-12cf45c7c8af");
   formData.set("subject", "Nouvelle réservation — Masterclasses Melchior Fogué");
   formData.set("from_name", "Melchior Fogué — Masterclasses");
